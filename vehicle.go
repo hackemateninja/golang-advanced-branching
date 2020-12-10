@@ -4,10 +4,37 @@ import (
 
 )
 
+type vehicle interface {
 
+}
+
+type car struct {
+	model, make, typeVehicle string
+}
+
+type truck struct {
+	model, make, typeVehicle string
+}
+
+type bike struct {
+	model, make string
+}
 // Values array for the feedback.json file
+type Values struct {
+	Models []Model `json:"values"`
+}
 
+type Model struct {
+	Name string `json:"model"`
+	FeedBack string `json:"feedback"`
+}
 // Model array for the feedback.json file
+
+type feedbackResult struct {
+	feedbackTotal, feedbackPositive, feedbackNegative, feedbackNeutral string
+}
+var vehicleResult = make(map[string]feedbackResult)
+var inventory = []vehicle{}
 
 type rating float32
 
